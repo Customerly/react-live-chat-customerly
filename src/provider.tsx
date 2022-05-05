@@ -102,7 +102,7 @@ export const CustomerlyProvider: FunctionComponent<
   const event = useCallback(
     (eventName: string) => {
       safeCall( () => {
-        Caller("event", [eventName]);
+        Caller("event", eventName);
       });
     },
     [safeCall]
@@ -111,7 +111,7 @@ export const CustomerlyProvider: FunctionComponent<
   const attribute = useCallback(
     (attributeIdentifier: string, attributeValue: any) => {
       safeCall(() => {
-        Caller("attribute", [attributeIdentifier, attributeValue]);
+        Caller("attribute", attributeIdentifier, attributeValue);
       });
     },
     [safeCall]
@@ -120,7 +120,7 @@ export const CustomerlyProvider: FunctionComponent<
   const showNewMessage = useCallback(
     (message: string) => {
       safeCall( () => {
-        Caller("showNewMessage", [message]);
+        Caller("showNewMessage", message);
       });
     },
     [safeCall]
@@ -129,7 +129,7 @@ export const CustomerlyProvider: FunctionComponent<
   const sendNewMessage = useCallback(
     (message: string) => {
       safeCall(() => {
-        Caller("sendNewMessage", [message]);
+        Caller("sendNewMessage", message);
       });
     },
     [safeCall]
