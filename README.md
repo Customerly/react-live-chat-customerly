@@ -1,6 +1,6 @@
-# react-live-chat-customerly
+# React Live Chat from Customerly
 
-Add [Customerly Live Chat](https://customerly.io/) to your React app.
+Add the most powerful [Live Chat](https://www.customerly.io/?utm_source=github&utm_medium=README&utm_campaign=ReactSDK) to your React app.
 
 ## ⚙️ Install
 
@@ -14,7 +14,7 @@ Run `yarn add react-live-chat-customerly`
 
 ## 🚀 How to use
 
-To integrate Customerly Livechat to your React app, you need to have an account with Customerly. [Sign up here](https://customerly.io/).
+To integrate Customerly Livechat to your React app, you need to have an account with Customerly. [Sign up here](https://www.customerly.io/?utm_source=github&utm_medium=README&utm_campaign=ReactSDK).
 
 ```javascript
 import {CustomerlyProvider} from "react-live-chat-customerly";
