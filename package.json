@@ -1,5 +1,6 @@
 {
   "name": "react-live-chat-customerly",
+  "description": "The Live Chat component for React Apps by Customerly.",
   "author": "Customerly <info@customerly.io>",
   "version": "1.0.1",
   "license": "MIT",
@@ -8,6 +9,14 @@
   "files": [
     "dist",
     "src"
+  ],
+  "keywords": [
+    "live",
+    "chat",
+    "surveys",
+    "crm",
+    "support",
+    "react"
   ],
   "engines": {
     "node": ">=10"
