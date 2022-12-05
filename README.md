@@ -45,7 +45,7 @@ const App: FunctionComponent = () => {
 
 ### useCustomerly
 
-This hook exposes all the available methods mentioned in the documentation, [check it out](https://docs.customerly.io/live-chat/how-to-take-full-control-of-your-live-chat-with-custom-javascript).
+This hook exposes all the available methods mentioned in the documentation, [check it out](https://docs.customerly.io/live-chat/install-live-chat?utm_source=github&utm_medium=README&utm_campaign=ReactSDK).
 
  - `load` - The entry point of Customerly, it loads the messenger in the webpage
  - `update` - Same as load, but to refresh the messenger (e.g. after a sign in you might want to authenticate the user)
@@ -57,7 +57,7 @@ This hook exposes all the available methods mentioned in the documentation, [che
  - `attribute` - Track a property for the user in the current session
  - `sendNewMessage` - Send a new message
  - `showNewMessage` - Open and prefill the messenger with the specified message
- - `registerCallback` - Register a callback ([see available callbacks](https://docs.customerly.io/live-chat/how-to-add-live-chat-callbacks)) fired by the messenger during the lifecycle
+ - `registerCallback` - Register a callback ([see available callbacks](https://docs.customerly.io/live-chat/how-to-add-live-chat-callbacks?utm_source=github&utm_medium=README&utm_campaign=ReactSDK)) fired by the messenger during the lifecycle
 
 ## 🙋 Contributing
 If you have improvements that you'd like to see, or encounter any bugs, feel free to [create an issue](https://github.com/Customerly/gatsby-plugin-customerly-chat/issues). Alternatively, please open a PR, and make sure that the new code is properly tested and all the steps.
