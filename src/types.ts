@@ -130,4 +130,5 @@ export type CustomerlyContextValues = {
 
 export type CustomerlyProviderValues = {
   appId: string;
+  beta?: boolean;
 };

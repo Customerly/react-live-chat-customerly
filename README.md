@@ -43,6 +43,13 @@ const App: FunctionComponent = () => {
 }
 ```
 
+### CustomerlyProvider
+This is the provider you use to integrate Customerly Live Chat to your React app. It accepts the following props:
+
+ - `appId` - Your Customerly App ID, you can find it in the settings of your Customerly account
+ - `beta` - (optional) Enable the beta version of the messenger 
+> ⚠️ Note: Activating the beta flag allows you to try our newest features before their official release. Please be aware that these features are in beta and may be less stable. Your feedback is valuable in helping us improve.
+
 ### useCustomerly
 
 This hook exposes all the available methods mentioned in the documentation, [check it out](https://docs.customerly.io/live-chat/install-live-chat?utm_source=github&utm_medium=README&utm_campaign=ReactSDK).

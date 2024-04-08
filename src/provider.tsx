@@ -18,9 +18,9 @@ import {
 import { isSSR } from "./helpers";
 import Caller from "./caller";
 
-export const CustomerlyProvider: FunctionComponent<
-  PropsWithChildren<CustomerlyProviderValues>
-> = ({ appId, children }) => {
+export const CustomerlyProvider: FunctionComponent<PropsWithChildren<
+  CustomerlyProviderValues
+>> = ({ appId, beta, children }) => {
   const canInitialize = !isSSR;
 
   const isLoaded = useRef(false);
@@ -47,7 +47,7 @@ export const CustomerlyProvider: FunctionComponent<
   );
 
   if (!isSSR && canInitialize && !isInitialized.current) {
-    initialize();
+    initialize({ beta });
 
     isInitialized.current = true;
   }
@@ -94,14 +94,14 @@ export const CustomerlyProvider: FunctionComponent<
   }, [safeCall]);
 
   const close = useCallback(() => {
-    safeCall( () => {
+    safeCall(() => {
       Caller("close");
     });
   }, [safeCall]);
 
   const event = useCallback(
     (eventName: string) => {
-      safeCall( () => {
+      safeCall(() => {
         Caller("event", eventName);
       });
     },
@@ -119,7 +119,7 @@ export const CustomerlyProvider: FunctionComponent<
 
   const showNewMessage = useCallback(
     (message: string) => {
-      safeCall( () => {
+      safeCall(() => {
         Caller("showNewMessage", message);
       });
     },
