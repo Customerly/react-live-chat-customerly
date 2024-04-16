@@ -80,41 +80,41 @@ Hook to interact with Customerly chat functionalities.
 
 #### Functions
 
-| Function             | Arguments                                    | Description |
-|----------------------|----------------------------------------------|-------------|
-| load                 | [load options](###load function options)     | Initializes and loads the chat window with user data |
-| update               | [update options](###update function options) | Updates the chat window with new user data |
-| open                 | None                                         | Opens the chat window |
-| close                | None                                         | Closes the chat window |
-| show                 | None                                         | Shows the chat window |
-| hide                 | None                                         | Hides the chat window |
-| event                | `"event_name"`                               | Fires a specific event to track user interaction |
-| attribute            | `"key", "value"`                             | Updates or adds a new attribute for the user on the go |
-| logout               | None                                         | Logs out the user from the live chat session |
-| showNewMessage       | `"message"`                                  | Opens the chat window and displays a pre-populated message |
-| sendNewMessage       | `"message"`                                  | Sends a new message from the user |
-| [registerCallback](##Callbacks) | CustomerlyCallback                           | Allows or prevents the chat from automatically detecting and adapting to the user's locale  | No       | true    |
+| Function                       | Arguments                                  | Description |
+|--------------------------------|--------------------------------------------|-------------|
+| load                           | [load options](#load-function-options)     | Initializes and loads the chat window with user data |
+| update                         | [update options](#update-function-options) | Updates the chat window with new user data |
+| open                           | None                                       | Opens the chat window |
+| close                          | None                                       | Closes the chat window |
+| show                           | None                                       | Shows the chat window |
+| hide                           | None                                       | Hides the chat window |
+| event                          | `"event_name"`                             | Fires a specific event to track user interaction |
+| attribute                      | `"key", "value"`                           | Updates or adds a new attribute for the user on the go |
+| logout                         | None                                       | Logs out the user from the live chat session |
+| showNewMessage                 | `"message"`                                | Opens the chat window and displays a pre-populated message |
+| sendNewMessage                 | `"message"`                                | Sends a new message from the user |
+| [registerCallback](#callbacks) | CustomerlyCallback                         | Allows or prevents the chat from automatically detecting and adapting to the user's locale  | No       | true    |
 
 ### Load function options
 
 You can customize the appearance and behavior of the AI Chatbot by passing different information to the load function.
 
-| Option                                                                | Type    | Description                                                                                 | Required | Default |
-|-----------------------------------------------------------------------|---------|---------------------------------------------------------------------------------------------|----------|---------|
-| user_id                                                               | `string`  | Unique identifier for the user                                                              | No       | None    |
-| email                                                                 | `string`  | User's email address                                                                        | No       | None    |
-| name                                                                  | `string`  | User's full name                                                                            | No       | None    |
-| [attributes](####User authentication and custom attributes Structure) | `object`  | Customisable user details                                                                   | No       | None    |
-| [company](####Company Object Structure)                               | `object`  | Company details associated with the user                                                    | No       | None    |
-| accentColor                                                           | `string`  | HEX code to customize the main color of the live chat interface                             | No       | None    |
-| contrastColor                                                         | `string`  | HEX code to customize the contrast color of the live chat interface                         | No       | None    |
-| position                                                              | `object`  | Defines the position of the chat bubble on desktop and mobile (`bottom` and `side` offsets) | No       | `{desktop: {bottom: 0, side: 0}, mobile: {bottom: 0, side: 0}}` |
-| visible                                                               | `boolean` | Controls the visibility of the live chat on all devices                                     | No       | `true`    |
-| visibleOnMobile                                                       | `boolean` | Specifically controls the visibility of the live chat on mobile devices                     | No       | `true`    |
-| attachmentsAvailable                                                  | `boolean` | Enables or disables the attachment feature in the chat interface                            | No       | `true`    |
-| autodetectLocale                                                      | `boolean` | Allows or prevents the chat from automatically detecting and adapting to the user's locale  | No       | `true`    |
+| Option                                                             | Type    | Description                                                                                 | Required | Default |
+|--------------------------------------------------------------------|---------|---------------------------------------------------------------------------------------------|----------|---------|
+| user_id                                                            | `string`  | Unique identifier for the user                                                              | No       | None    |
+| email                                                              | `string`  | User's email address                                                                        | No       | None    |
+| name                                                               | `string`  | User's full name                                                                            | No       | None    |
+| [attributes](#user-authentication-and-custom-attributes-structure) | `object`  | Customisable user details                                                                   | No       | None    |
+| [company](#company-object-structure)                               | `object`  | Company details associated with the user                                                    | No       | None    |
+| accentColor                                                        | `string`  | HEX code to customize the main color of the live chat interface                             | No       | None    |
+| contrastColor                                                      | `string`  | HEX code to customize the contrast color of the live chat interface                         | No       | None    |
+| position                                                           | `object`  | Defines the position of the chat bubble on desktop and mobile (`bottom` and `side` offsets) | No       | `{desktop: {bottom: 0, side: 0}, mobile: {bottom: 0, side: 0}}` |
+| visible                                                            | `boolean` | Controls the visibility of the live chat on all devices                                     | No       | `true`    |
+| visibleOnMobile                                                    | `boolean` | Specifically controls the visibility of the live chat on mobile devices                     | No       | `true`    |
+| attachmentsAvailable                                               | `boolean` | Enables or disables the attachment feature in the chat interface                            | No       | `true`    |
+| autodetectLocale                                                   | `boolean` | Allows or prevents the chat from automatically detecting and adapting to the user's locale  | No       | `true`    |
 
-#### User authentication and custom attributes Structure
+#### User authentication and custom attributes structure
 
 ```tsx
 import React, { FunctionComponent, useEffect } from 'react';
@@ -156,7 +156,7 @@ const UserChatComponent: FunctionComponent = () => {
 export default App;
 ```
 
-#### Company Object Structure
+#### Company object structure
 
 ```tsx
 import React, { FunctionComponent, useEffect } from 'react';
@@ -213,9 +213,9 @@ export default App;
 The update function is a critical tool within the Customerly Live Chat SDK, designed to refresh and sync user data and configurations in real-time. This function is particularly useful in single-page applications (SPAs) where user contexts and states can change without a full page reload.
 
 To ensure that the user information displayed within the live chat remains accurate and current.
-When to Use:
+When to use:
 - Typically, you should invoke the update function when significant user information changes, such as after editing a profile, changing user settings, or upon user login/logout actions.
-- Route Changes: In SPAs, where route changes do not reload the entire application, it’s crucial to manually invoke the update function to refresh the chat environment.
+- Route changes: In SPAs, where route changes do not reload the entire application, it’s crucial to manually invoke the update function to refresh the chat environment.
 
 ```tsx
 import React, { FunctionComponent, useEffect, useContext } from 'react';
@@ -310,7 +310,7 @@ const LeadGenChatComponent: FunctionComponent = () => {
 export default App;
 ```
 
-## Example Playground
+## Example playground
 
 This is a basic playground to try the Customerly messenger features and custom implementation.
 
