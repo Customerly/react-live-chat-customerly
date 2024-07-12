@@ -21,6 +21,7 @@ export type CustomerlyMessenger = {
   attachmentsAvailable?: boolean;
   singleConversation?: boolean;
   position?: CustomerlyMessengerPosition;
+  disableCSSOMInjection?: boolean;
 };
 
 export type CustomerlyContactProperty = {
