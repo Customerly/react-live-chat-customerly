@@ -18,9 +18,9 @@ import {
 import { isSSR } from "./helpers";
 import Caller from "./caller";
 
-export const CustomerlyProvider: FunctionComponent<PropsWithChildren<
-  CustomerlyProviderValues
->> = ({ appId, beta, children }) => {
+export const CustomerlyProvider: FunctionComponent<
+  PropsWithChildren<CustomerlyProviderValues>
+> = ({ appId, beta, children }) => {
   const canInitialize = !isSSR;
 
   const isLoaded = useRef(false);

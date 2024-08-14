@@ -21,12 +21,12 @@ const initialize = ({ beta }: { beta?: boolean }) => {
   c.methods = ["event", "attribute", "update", "show", "hide", "open", "close"];
   c[queue_key] = [];
 
-  c.throw = function(message) {
+  c.throw = function (message) {
     w.console && !c.debug && console.error && console.error(message);
   };
 
-  c.factory = function(e) {
-    return function() {
+  c.factory = function (e) {
+    return function () {
       var n = Array.prototype.slice.call(arguments);
 
       // eslint-disable-next-line no-sequences
@@ -34,7 +34,7 @@ const initialize = ({ beta }: { beta?: boolean }) => {
     };
   };
 
-  c[load_key] = function(settings) {
+  c[load_key] = function (settings) {
     c[settings_key] = settings || {};
 
     if (c.loaded) {
@@ -51,7 +51,7 @@ const initialize = ({ beta }: { beta?: boolean }) => {
     e.parentNode.insertBefore(s, e);
   };
 
-  c.methods.forEach(function(e) {
+  c.methods.forEach(function (e) {
     c[e] = c.factory(e);
   });
 };

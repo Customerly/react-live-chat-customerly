@@ -1,0 +1,8 @@
+.circleci/
+.danger/
+.github/
+.vscode/
+.idea/
+launcher.js
+node_modules/
+tsconfig.json
