@@ -103,6 +103,20 @@ export type CustomerlyCallbackOnHelpCenterArticleOpened = {
   function: (article: any) => void;
 };
 
+export type CustomerlyCallbackOnChatflowNotificationViewed = {
+  type: "onChatflowNotificationViewed";
+  function: (notificationId: number, email?: string) => void;
+};
+
+export type CustomerlyCallbackOnChatflowNotificationClicked = {
+  type: "onChatflowNotificationClicked";
+  function: (
+    notificationId: number,
+    item: ChatflowNotificationCallbackItem,
+    email?: string
+  ) => void;
+};
+
 export type CustomerlyCallback =
   | CustomerlyCallbackOnChatClosed
   | CustomerlyCallbackOnChatOpened
@@ -112,7 +126,9 @@ export type CustomerlyCallback =
   | CustomerlyCallbackOnLeadGenerated
   | CustomerlyCallbackOnHelpCenterArticleOpened
   | CustomerlyCallbackOnRealtimeVideoAnswered
-  | CustomerlyCallbackOnRealtimeVideoRejected;
+  | CustomerlyCallbackOnRealtimeVideoRejected
+  | CustomerlyCallbackOnChatflowNotificationViewed
+  | CustomerlyCallbackOnChatflowNotificationClicked;
 
 export type CustomerlyContextValues = {
   load: (settings: CustomerlySettings) => void;
@@ -133,3 +149,60 @@ export type CustomerlyProviderValues = {
   appId: string;
   beta?: boolean;
 };
+
+enum ChatflowNotificationCallbackItemType {
+  Article = "article",
+  Attributes = "attributes",
+  Button = "button",
+  CalendarButton = "calendar_button",
+  CloseButton = "close_button",
+}
+
+type ChatflowNotificationCallbackItem =
+  | ChatflowNotificationCallbackItemArticle
+  | ChatflowNotificationCallbackItemAttribute
+  | ChatflowNotificationCallbackItemButton
+  | ChatflowNotificationCallbackItemCalendarButton
+  | ChatflowNotificationCallbackItemCloseButton;
+
+interface ChatflowNotificationCallbackItemArticle {
+  article: {
+    article_id: number;
+    collection_id: number;
+    title: string;
+    description: string;
+    author: {
+      account_id: number;
+      name?: string;
+    };
+  };
+  type: ChatflowNotificationCallbackItemType.Article;
+}
+
+interface ChatflowNotificationCallbackItemAttribute {
+  attributes: {
+    name: string;
+    value: boolean | number | string;
+  }[];
+  type: ChatflowNotificationCallbackItemType.Attributes;
+}
+
+interface ChatflowNotificationCallbackItemButton {
+  button: {
+    caption: string;
+    link: string;
+  };
+  type: ChatflowNotificationCallbackItemType.Button;
+}
+
+interface ChatflowNotificationCallbackItemCalendarButton {
+  button: {
+    caption: string;
+    link: string;
+  };
+  type: ChatflowNotificationCallbackItemType.CalendarButton;
+}
+
+interface ChatflowNotificationCallbackItemCloseButton {
+  type: ChatflowNotificationCallbackItemType.CloseButton;
+}
