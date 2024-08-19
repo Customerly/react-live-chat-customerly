@@ -150,12 +150,13 @@ export type CustomerlyProviderValues = {
   beta?: boolean;
 };
 
-enum ChatflowNotificationCallbackItemType {
+export enum ChatflowNotificationCallbackItemType {
   Article = "article",
   Attributes = "attributes",
   Button = "button",
   CalendarButton = "calendar_button",
   CloseButton = "close_button",
+  StartConversationButton = "start_conversation_button",
 }
 
 type ChatflowNotificationCallbackItem =
@@ -163,7 +164,8 @@ type ChatflowNotificationCallbackItem =
   | ChatflowNotificationCallbackItemAttribute
   | ChatflowNotificationCallbackItemButton
   | ChatflowNotificationCallbackItemCalendarButton
-  | ChatflowNotificationCallbackItemCloseButton;
+  | ChatflowNotificationCallbackItemCloseButton
+  | ChatflowNotificationCallbackItemStartConversationButton;
 
 interface ChatflowNotificationCallbackItemArticle {
   article: {
@@ -205,4 +207,11 @@ interface ChatflowNotificationCallbackItemCalendarButton {
 
 interface ChatflowNotificationCallbackItemCloseButton {
   type: ChatflowNotificationCallbackItemType.CloseButton;
+}
+
+interface ChatflowNotificationCallbackItemStartConversationButton {
+  button: {
+    caption: string;
+  };
+  type: ChatflowNotificationCallbackItemType.StartConversationButton;
 }
