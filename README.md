@@ -270,20 +270,22 @@ export default UserProfilePage;
 
 ## Callbacks
 
-| Callback Function               | Description                                                                            | Returns                                        |
-|---------------------------------|----------------------------------------------------------------------------------------|------------------------------------------------|
-| `onLeadGenerated`               | Triggered when a new conversation is initiated, signaling a potential lead generation. | `email` (the lead's email if provided)         |
-| `onChatOpened`                  | Triggered when the chat window is opened by the client.                                | None                                           |
-| `onChatClosed`                  | Triggered when the chat window is closed by the client.                                | None                                           |
-| `onNewConversation`             | Occurs when a new conversation starts, useful for analytics tracking.                  | `message`, `attachments`                       |
-| `onProfilingQuestionAnswered`   | Triggered when a profiling question is answered, capturing the response details.       | `attribute`, `value`                           |
-| `onProfilingQuestionAsked`      | Activated when a profiling question is presented to the visitor.                       | `attribute` (the related question asked)       |
-| `onRealtimeVideoAnswered`       | Fired when a Realtime Video Call is answered by the client.                            | None                                           |
-| `onRealtimeVideoRejected`       | Fired when a Realtime Video Call is rejected by the client.                            | None                                           |
-| `onTriggerFired`                | Triggered when a chat trigger message is received by the customer.                     | `triggerId` (ID of the trigger fired)          |
-| `onHelpCenterArticleOpened`     | Triggered when a client opens a Help Center Article within the live chat widget.       | `article` (detailed attributes of the article) |
-| `onChatflowNotificationViewed`  | Triggered when a chatflow notification is viewed by the user.                          | `notificationId`, `email`                      |
-| `onChatflowNotificationClicked` | Triggered when a chatflow notification is clicked by the user.                         | `notificationId`, `item`, `email`              |
+| Callback Function               | Description                                                                             | Returns                                                              |
+|---------------------------------|-----------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| `onLeadGenerated`               | Triggered when a new conversation is initiated, signaling a potential lead generation.  | `email` (the lead's email if provided)                               |
+| `onChatOpened`                  | Triggered when the chat window is opened by the client.                                 | None                                                                 |
+| `onChatClosed`                  | Triggered when the chat window is closed by the client.                                 | None                                                                 |
+| `onNewConversation`             | Occurs when a new conversation is started by the client, useful for analytics tracking. | `message`, `attachments`                                             |
+| `onProfilingQuestionAnswered`   | Triggered when a profiling question is answered, capturing the response details.        | `attribute`, `value`                                                 |
+| `onProfilingQuestionAsked`      | Activated when a profiling question is presented to the visitor.                        | `attribute` (the related question asked)                             |
+| `onRealtimeVideoAnswered`       | Fired when a Realtime Video Call is answered by the client.                             | None                                                                 |
+| `onRealtimeVideoRejected`       | Fired when a Realtime Video Call is rejected by the client.                             | None                                                                 |
+| `onTriggerFired`                | Triggered when a chat trigger message is received by the customer.                      | `triggerId` (ID of the trigger fired)                                |
+| `onHelpCenterArticleOpened`     | Triggered when a client opens a Help Center Article within the live chat widget.        | `article` (detailed attributes of the article)                       |
+| `onChatflowNotificationViewed`  | Triggered when a chatflow notification is viewed by the user.                           | `notificationId`, `email`                                            |
+| `onChatflowNotificationClicked` | Triggered when a chatflow notification is clicked by the user.                          | `notificationId`, `item`, `email`                                    |
+| `onNewMessageReceived`          | Fired when a new message is received by the client.                                     | `message: { accountId, message, timestamp, userId, conversationId }` |
+| `onNewConversationReceived`     | Triggered when a new conversation is received by the client.                            | `conversationId`                                                     |
 
 ```tsx
 import React, {FunctionComponent, useEffect} from 'react';

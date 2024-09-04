@@ -117,6 +117,22 @@ export type CustomerlyCallbackOnChatflowNotificationClicked = {
   ) => void;
 };
 
+export type CustomerlyCallbackOnNewMessageReceived = {
+  type: "onNewMessageReceived";
+  function: (message: {
+    accountId: number;
+    message: string;
+    timestamp: number;
+    userId: number;
+    conversationId: number;
+  }) => void;
+};
+
+export type CustomerlyCallbackOnNewConversationReceived = {
+  type: "onNewConversationReceived";
+  function: (conversationId: number) => void;
+};
+
 export type CustomerlyCallback =
   | CustomerlyCallbackOnChatClosed
   | CustomerlyCallbackOnChatOpened
@@ -128,7 +144,9 @@ export type CustomerlyCallback =
   | CustomerlyCallbackOnRealtimeVideoAnswered
   | CustomerlyCallbackOnRealtimeVideoRejected
   | CustomerlyCallbackOnChatflowNotificationViewed
-  | CustomerlyCallbackOnChatflowNotificationClicked;
+  | CustomerlyCallbackOnChatflowNotificationClicked
+  | CustomerlyCallbackOnNewMessageReceived
+  | CustomerlyCallbackOnNewConversationReceived;
 
 export type CustomerlyContextValues = {
   load: (settings: CustomerlySettings) => void;
