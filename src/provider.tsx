@@ -7,7 +7,9 @@ import {
   useMemo,
   useRef,
 } from "react";
+import Caller from "./caller";
 import CustomerlyContext from "./context";
+import { isSSR } from "./helpers";
 import initialize from "./initialize";
 import {
   CustomerlyCallback,
@@ -15,8 +17,6 @@ import {
   CustomerlyProviderValues,
   CustomerlySettings,
 } from "./types";
-import { isSSR } from "./helpers";
-import Caller from "./caller";
 
 export const CustomerlyProvider: FunctionComponent<
   PropsWithChildren<CustomerlyProviderValues>
@@ -117,6 +117,21 @@ export const CustomerlyProvider: FunctionComponent<
     [safeCall]
   );
 
+  const showArticle = useCallback(
+    (collectionSlugOrArticleId: string | number, articleSlug?: string) => {
+      safeCall(() => {
+        Caller("showArticle", collectionSlugOrArticleId, articleSlug);
+      });
+    },
+    [safeCall]
+  );
+
+  const showBookMeeting = useCallback(() => {
+    safeCall(() => {
+      Caller("showBookMeeting");
+    });
+  }, [safeCall]);
+
   const showNewMessage = useCallback(
     (message: string) => {
       safeCall(() => {
@@ -160,6 +175,8 @@ export const CustomerlyProvider: FunctionComponent<
       close,
       event,
       attribute,
+      showArticle,
+      showBookMeeting,
       showNewMessage,
       sendNewMessage,
       logout,
@@ -174,6 +191,8 @@ export const CustomerlyProvider: FunctionComponent<
     logout,
     open,
     sendNewMessage,
+    showArticle,
+    showBookMeeting,
     show,
     showNewMessage,
     update,

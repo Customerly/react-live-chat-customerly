@@ -53,6 +53,8 @@ export type CustomerlyCallerMethod =
   | "close"
   | "attribute"
   | "event"
+  | "showArticle"
+  | "showBookMeeting"
   | "showNewMessage"
   | "sendNewMessage"
   | "logout"
@@ -157,9 +159,14 @@ export type CustomerlyContextValues = {
   close: () => void;
   attribute: (attributeIdentifier: string, attributeValue: any) => void;
   event: (eventName: string) => void;
+  logout: () => void;
+  showArticle: (
+    collectionSlugOrArticleId: string | number,
+    articleSlug?: string
+  ) => void;
+  showBookMeeting: () => void;
   showNewMessage: (message: string) => void;
   sendNewMessage: (message: string) => void;
-  logout: () => void;
   registerCallback: (callback: CustomerlyCallback) => void;
 };
 
