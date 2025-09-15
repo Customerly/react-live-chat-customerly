@@ -84,22 +84,22 @@ Hook to interact with Customerly chat functionalities.
 
 #### Functions
 
-| Function                       | Arguments                                    | Description                                                                                |
-| ------------------------------ | -------------------------------------------- | ------------------------------------------------------------------------------------------ | --- | ---- |
-| load                           | [load options](#load-function-options)       | Initializes and loads the chat window with user data                                       |
-| update                         | [update options](#update-function-options)   | Updates the chat window with new user data                                                 |
-| open                           | None                                         | Opens the chat window                                                                      |
-| close                          | None                                         | Closes the chat window                                                                     |
-| show                           | None                                         | Shows the chat window                                                                      |
-| hide                           | None                                         | Hides the chat window                                                                      |
-| event                          | `"event_name"`                               | Fires a specific event to track user interaction                                           |
-| attribute                      | `"key", "value"`                             | Updates or adds a new attribute for the user on the go                                     |
-| logout                         | None                                         | Logs out the user from the live chat session                                               |
-| showArticle                    | `"collectionSlugOrArticleId", "articleSlug"` | Opens the chat window and displays an article                                              |
-| showBookMeeting                | None                                         | Opens the chat window and displays book meeting page                                       |
-| showNewMessage                 | `"message"`                                  | Opens the chat window and displays a pre-populated message                                 |
-| sendNewMessage                 | `"message"`                                  | Sends a new message from the user                                                          |
-| [registerCallback](#callbacks) | CustomerlyCallback                           | Allows or prevents the chat from automatically detecting and adapting to the user's locale | No  | true |
+| Function                       | Arguments                                    | Description                                                |
+| ------------------------------ | -------------------------------------------- | ---------------------------------------------------------- |
+| load                           | [load options](#load-function-options)       | Initializes and loads the chat window with user data       |
+| update                         | [update options](#update-function-options)   | Updates the chat window with new user data                 |
+| open                           | None                                         | Opens the chat window                                      |
+| close                          | None                                         | Closes the chat window                                     |
+| show                           | None                                         | Shows the chat window                                      |
+| hide                           | None                                         | Hides the chat window                                      |
+| event                          | `"event_name"`                               | Fires a specific event to track user interaction           |
+| attribute                      | `"key", "value"`                             | Updates or adds a new attribute for the user on the go     |
+| logout                         | None                                         | Logs out the user from the live chat session               |
+| showArticle                    | `"collectionSlugOrArticleId", "articleSlug"` | Opens the chat window and displays an article              |
+| showBookMeeting                | None                                         | Opens the chat window and displays book meeting page       |
+| showNewMessage                 | `"message"`                                  | Opens the chat window and displays a pre-populated message |
+| sendNewMessage                 | `"message"`                                  | Sends a new message from the user                          |
+| [registerCallback](#callbacks) | CustomerlyCallback                           | Registers a callback function for various chat events      |
 
 ### Load function options
 
